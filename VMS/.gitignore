@@ -12,3 +12,9 @@ __pycache__/
 
 # ignore dqlite file
 db.sqlite3
+
+# files
+*.img
+*.png
+*.jpg
+*.jpeg

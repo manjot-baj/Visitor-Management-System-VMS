@@ -24,4 +24,5 @@ admin.site.index_title = "VMS Admin"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('', include('main.urls')),
 ]
