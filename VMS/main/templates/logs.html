@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Visitor Log - Visitor Management System{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Visitor Log</h2>
+    
+    {% if visitors %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Purpose</th>
+                <th>Check-in</th>
+                <th>Check-out</th>
+                <th>Host</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for visitor in visitors %}
+            <tr>
+                <td>{{ visitor.name }}</td>
+                <td>{{ visitor.contact }}</td>
+                <td>{{ visitor.email }}</td>
+                <td>{{ visitor.purpose }}</td>
+                <td>{{ visitor.check_in }}</td>
+                <td>{% if visitor.check_out %}{{ visitor.check_out }}{% else %}Still Checked In{% endif %}</td>
+                <td>{{ visitor.host_name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="text-center">No visitors have been recorded yet.</p>
+    {% endif %}
+</div>
+{% endblock %}
