@@ -10,7 +10,7 @@ class VisitorAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            'fields': ('name', 'contact', 'email', 'address', 'purpose', 'status', 'image')
+            'fields': ('name', 'contact', 'email', 'address', 'purpose', 'status', 'img')
         }),
         ('Timestamps', {
             'fields': ('check_in', 'check_out'),

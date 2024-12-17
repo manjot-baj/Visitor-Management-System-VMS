@@ -4,7 +4,7 @@ from .models import Visitor
 class VisitorForm(forms.ModelForm):
     class Meta:
         model = Visitor
-        fields = ['name', 'contact', 'email', 'address', 'purpose', 'status', 'image']  # Include 'image' field
+        fields = ['name', 'contact', 'email', 'address', 'purpose', 'status', 'img']  # Include 'img' field
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter visitor name'}),
@@ -13,7 +13,7 @@ class VisitorForm(forms.ModelForm):
             'address': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter address', 'rows': 3}),
             'purpose': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter purpose of visit', 'rows': 3}),
             'status': forms.Select(attrs={'class': 'form-select'}),
-            'image': forms.ClearableFileInput(attrs={'class': 'form-control', 'accept': 'image/*'}),  # File input for image
+            'img': forms.ClearableFileInput(attrs={'class': 'form-control', 'accept': 'img/*'}),  # File input for img
         }
 
         labels = {
@@ -23,7 +23,7 @@ class VisitorForm(forms.ModelForm):
             'address': 'Address',
             'purpose': 'Purpose of Visit',
             'status': 'Status (IN/OUT)',
-            'image': 'Upload Image',  # Label for image field
+            'img': 'Upload img',  # Label for img field
         }
 
     def clean_contact(self):

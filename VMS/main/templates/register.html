@@ -34,13 +34,13 @@
         </div>
 
         <div class="mb-3">
-            <label for="image" class="form-label">Upload or Capture Image</label>
+            <label for="img" class="form-label">Upload or Capture img</label>
             <!-- File Input -->
-            <input type="file" class="form-control" id="image" name="image" accept="image/*" capture="environment" onchange="previewImage(event)">
+            <input type="file" class="form-control" id="img" name="img" accept="img/*" capture="environment" onchange="previewimg(event)">
             
             <!-- Live Camera -->
             <div class="text-center mt-3">
-                <button type="button" class="btn btn-secondary" onclick="openCamera()">Capture Image with Camera</button>
+                <button type="button" class="btn btn-secondary" onclick="openCamera()">Capture img with Camera</button>
             </div>
 
             <!-- Webcam Container -->
@@ -48,7 +48,7 @@
                 <video id="camera-feed" autoplay></video>
                 <canvas id="snapshot" style="display: none;"></canvas>
                 <div class="mt-2">
-                    <button type="button" class="btn btn-success" onclick="captureImage()">Capture</button>
+                    <button type="button" class="btn btn-success" onclick="captureimg()">Capture</button>
                     <button type="button" class="btn btn-danger" onclick="closeCamera()">Cancel</button>
                 </div>
             </div>
@@ -74,16 +74,16 @@
             });
     }
 
-    function captureImage() {
+    function captureimg() {
         canvas.style.display = 'block';
-        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        canvas.getContext('2d').drawimg(video, 0, 0, canvas.width, canvas.height);
 
-        // Convert canvas image to a data URL and send it with the form
+        // Convert canvas img to a data URL and send it with the form
         canvas.toBlob((blob) => {
-            const file = new File([blob], "captured_image.png", { type: 'image/png' });
+            const file = new File([blob], "captured_img.png", { type: 'img/png' });
             const dataTransfer = new DataTransfer();
             dataTransfer.items.add(file);
-            document.getElementById('image').files = dataTransfer.files;
+            document.getElementById('img').files = dataTransfer.files;
         });
 
         closeCamera();
@@ -98,12 +98,12 @@
         cameraContainer.style.display = 'none';
     }
 
-    function previewImage(event) {
+    function previewimg(event) {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onload = (e) => {
-                console.log('Image preview available at:', e.target.result);
+                console.log('img preview available at:', e.target.result);
             };
             reader.readAsDataURL(file);
         }
